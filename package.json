@@ -13,7 +13,7 @@
     "list": "node ./scripts/list.js",
     "startclient": "node ./src/comm/client/zoo-client.js",
     "burrow-deps": "npm install --no-save @monax/burrow@0.23.0 grpc@1.16.1",
-    "composer-deps": "npm install --no-save composer-admin@0.19.18 composer-client@0.19.18 composer-common@0.19.18 fabric-ca-client@1.2.0 fabric-client@1.2.0",
+    "composer-deps": "npm install --no-save composer-admin@0.19.18 composer-client@0.19.18 composer-common@0.19.18 fabric-ca-client@1.4.0 fabric-client@1.4.0",
     "fabric-v1.0-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0",
     "fabric-v1.1-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0",
     "fabric-deps": "npm install --no-save fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0",
@@ -51,10 +51,11 @@
     "ps-node": "^0.1.6",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
+    "sawtooth-sdk": "^1.0.5",
     "systeminformation": "^3.23.7",
     "table": "^4.0.1",
     "winston": "^2.4.4",
-    "winston-daily-rotate-file": "^3.5.1"
+    "winston-daily-rotate-file": "^3.8.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

@@ -441,7 +441,7 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
  */
 async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
 
-    Client.setConfigSetting('request-timeout', 600000);
+    Client.setConfigSetting('request-timeout', 1200000);
 
     let channel = testUtil.getChannel(chaincode.channel);
     if(channel === null) {

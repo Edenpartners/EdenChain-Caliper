@@ -1,0 +1,64 @@
+{
+  "caliper": {
+    "blockchain": "fabric"
+  },
+  "fabric": {
+    "cryptodir": "kube/crypto-config",
+    "network": {
+      "orderer": {
+        "url": "grpc://35.184.137.20:31010",
+        "mspid": "OrdererMSP",
+        "msp": "kube/crypto-config/ordererOrganizations/example.com/msp/",
+        "server-hostname": "blockchain-orderer",
+        "tls_cacerts": "kube/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+      },
+      "org1": {
+        "name": "peerOrg1",
+        "mspid": "Org1MSP",
+        "msp": "kube/crypto-config/peerOrganizations/org1.example.com/msp/",
+
+        "ca": {
+          "url": "http://35.222.15.186:30054",
+          "name": "blockchain-ca"
+        },
+
+        "peer0": {
+          "requests": "grpc://35.222.15.186:30110",
+          "events": "grpc://35.222.15.186:30111",
+          "server-hostname": "blockchain-org1peer0",
+          "tls_cacerts": "kube/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+        }
+      }
+    },
+    "channel": [
+      {
+        "name": "channel1",
+        "deployed": true,
+        "config": "kube/channel1.tx",
+        "organizations": ["org1"]
+      }
+    ],
+    "endorsement-policy": {
+      "identities": [
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org1MSP"
+          }
+        }
+      ],
+      "policy": { "1-of": [{"signed-by": 0}]}
+    },
+    "context": {
+      "init": "channel1",
+      "open": "channel1",
+      "query": "channel1"
+    }
+  },
+  "info" : {
+    "Version": "1.4.0",
+    "Size": "3 Orgs with 2 Peers",
+    "Orderer": "Solo",
+    "Distribution": "Single Host"
+  }
+}
